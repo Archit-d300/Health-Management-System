@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HealthCraft</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="healthcare.html">Healthcraft</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <li class="nav-item active">
+            <a class="nav-link" href="About.html">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Operations
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Patient Registration</a></li>
+              <li><a class="dropdown-item" href="#">Appointment Scheduling</a></li>
+              <li><a class="dropdown-item" href="#"></a>Electronic Health Records (EHR)</li>
+              <li><a class="dropdown-item" href="#"></a>Billing and Insurance</li>
+              <li><a class="dropdown-item" href="#"></a>Pharmacy Management</li>
+              <li><a class="dropdown-item" href="#"></a>Laboratory Information System (LIS)</li>
+              <li><a class="dropdown-item" href="#"></a>Inventory Management</li>
+              <li><a class="dropdown-item" href="#"></a>Human Resources Management</li>
+              <li><a class="dropdown-item" href="#"></a>Quality Management</li>
+              <li><a class="dropdown-item" href="#"></a>Medical Records Management</li>
+              <li><a class="dropdown-item" href="#"></a>Patient Portal</li>
+              <li><a class="dropdown-item" href="#"></a>Telemedicine</li>
+              <li><a class="dropdown-item" href="#"></a>Analytics and Reporting</li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Contact Us
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">📞 Phone:</a></li>
+              <li><a class="dropdown-item" href="#">✉️ Email:</a></li>
+              <li><a class="dropdown-item" href="#"></a>📍 Location:</li>
+            </ul>
+          </li>
+        </ul>
+       
+        <div class="mx-2">
+          <button class="btn btn-success" type="button" data-bs-toggle="modal"
+            data-bs-target="#LoginModal">Login</button>
+          <button class="btn btn-success" type="button" data-bs-toggle="modal"
+            data-bs-target="#SignUpModal">SignUp</button>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  <div class="modal fade" id="LoginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="LoginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="LoginModalLabel">Login</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="LoginForm" onsubmit="return validateForm()">
+            <div class="mb-3">
+              <label for="LoginEmail" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="LoginEmail" required placeholder="example@mail.com">
+            </div>
+            <div class="mb-3">
+              <label for="LoginPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="LoginPassword" required minlength="6"
+                placeholder="At least 5 characters">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+
+          <script>
+            function validateForm() {
+              const email = document.getElementById("LoginEmail").value.trim();
+              const password = document.getElementById("LoginPassword").value;
+
+              const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+              if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+              }
+
+              if (password.length < 5) {
+                alert("Password must be at least 5 characters long.");
+                return false;
+              }
+
+              return true;
+            }
+          </script>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="SignUpModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="SignUpModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="SignUpModalLabel">SignUp</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="SignUpForm" onsubmit="return validateForm()">
+            <div class="mb-3">
+              <label for="SignUpEmail" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="SignUpEmail" required placeholder="example@mail.com">
+            </div>
+            <div class="mb-3">
+              <label for="SignUpPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="SignUpPassword" required minlength="6"
+                placeholder="At least 5 characters">
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+          </form>
+
+          <script>
+            function validateForm() {
+              const email = document.getElementById("SignUpEmail").value.trim();
+              const password = document.getElementById("SignUpPassword").value;
+
+              const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+              if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+              }
+
+              if (password.length < 5) {
+                alert("Password must be at least 5 characters long.");
+                return false;
+              }
+
+              return true;
+            }
+          </script>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="carouselExampleFade" class="carousel slide carousel-fade">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeRBoUKBKS-oXAhxCO2D8Ymg7fEriRImDPGg&s" class="d-block w-100 img-fluid" style="height: 400px;" alt="Responsive carousel image">
+
+      </div>
+    </div>
+  </div>
+
+
+<div class="container my-4">
+  <div class="row featurette mb-5">
+    <div class="col-md-7">
+      <h2 class="featurette-heading fw-normal lh-1">Electronic Health Records
+        <span class="text-body-secondary">EHR</span>
+      </h2>
+      <p class="lead">Centralized digital records of patients' medical history, diagnoses,
+        treatments, medications, and other relevant information, accessible to authorized healthcare
+        providers.
+      </p>
+    </div>
+    <div class="col-md-5">
+      <img src="https://www.revalton.com/wp-content/uploads/2016/05/electronic-health-record-eh-1200x480.png" class="img-fluid" alt="">
+    </div>
+  </div>
+
+
+  <div class="row featurette mb-5">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading fw-normal lh-1">Appointment Scheduling
+      </h2>
+      <p class="lead">Automated scheduling of patient appointments with doctors, specialists,
+        and other healthcare professionals, with options for online booking, reminders, and rescheduling.</p>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAxaFJrU0JeJJSuTu-M7MRxMBhto80-iNn3A&s"  class="img-fluid" alt="">
+    </div>
+  </div>
+
+
+  <div class="row featurette mb-5">
+    <div class="col-md-7">
+      <h2 class="featurette-heading fw-normal lh-1">Billing and Invoicing
+      </h2>
+      <p class="lead">Integrated billing functionality for generating and managing invoices,
+        processing payments, submitting insurance claims, and tracking revenue.</p>
+    </div>
+    <div class="col-md-5">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1fsh7ReqvfF-Wkagxk6hogKQ1cBCE6ItqGw&s" class="img-fluid" alt="">
+    </div>
+  </div>
+
+  <div class="row featurette mb-5">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading fw-normal lh-1">Clinical Decision Support
+      </h2>
+      <p class="lead">Tools and alerts to assist healthcare providers in making informed clinical
+        decisions, including drug interaction checks, clinical guidelines, and decision support algorithms.</p>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <img src="https://www.genxys.com/wp-content/uploads/2021/01/the-benefits-of-clinical-decision-support-scaled.jpg" class="img-fluid" alt="">
+    </div>
+  </div>
+
+  <div class="row featurette mb-5">
+    <div class="col-md-7">
+      <h2 class="featurette-heading fw-normal lh-1">Inventory Management
+      </h2>
+      <p class="lead">Efficient management of hospital supplies, medications, and equipment,
+        including procurement, stock tracking, and automated reordering.</p>
+    </div>
+    <div class="col-md-5">
+      <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/What_Is_Inventory_Management.jpg" class="img-fluid" alt="">
+    </div>
+  </div>
+
+  <div class="row featurette mb-5">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading fw-normal lh-1">Laboratory and Radiology Integration
+      </h2>
+      <p class="lead">Seamless integration with laboratory information systems
+        (LIS) and radiology information systems (RIS) for ordering tests, capturing results, and linking them to
+        patients' electronic health records.</p>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_EvEH25cG68F91bYEgTJCWOwZ5wFrWWnK8A&s" class="img-fluid" alt="">
+    </div>
+  </div>
+
+  <div class="row featurette mb-5">
+    <div class="col-md-7">
+      <h2 class="featurette-heading fw-normal lh-1">Patient Portal
+      </h2>
+      <p class="lead">Secure online access for patients to view their medical records, schedule appointments,
+        request prescription refills, and communicate with healthcare providers.</p>
+    </div>
+    <div class="col-md-5">
+      <img src="https://images.squarespace-cdn.com/content/v1/5ecf244481e37715bf090548/776650ec-36b5-4f9e-806a-d2ab37229ab6/Patient+Portal.png" class="img-fluid" alt="">
+    </div>
+  </div>
+
+  <div class="row featurette mb-5">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading fw-normal lh-1">Telemedicine Capabilities
+      </h2>
+      <p class="lead">Support for remote consultations, virtual visits, and telemonitoring of
+        patients, enabling access to care from anywhere with an internet connection.</p>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv78BZhNATGFlk9-e7G7DvdUzCbFal56fr5DB5jvcrp7-ODHGjNT6Hrv1xkkf8gv2bjdU&usqp=CAU" class="img-fluid" alt="">
+    </div>
+  </div>
+
+  <div class="row featurette mb-5">
+    <div class="col-md-7">
+      <h2 class="featurette-heading fw-normal lh-1">Mobile Accessibility
+      </h2>
+      <p class="lead">Mobile applications or responsive web interfaces that allow healthcare providers
+        to access patient information, review test results, and perform other tasks on-the-go.</p>
+    </div>
+    <div class="col-md-5">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi0gC7z2rrtmU2HbMQAHaHJMjuqPLCL37tTQ&s" class="img-fluid" alt="">
+    </div>
+  </div>
+
+  <div class="row featurette mb-5">
+    <div class="col-md-7 order-md-2">
+      <h2 class="featurette-heading fw-normal lh-1">Interoperability
+
+      </h2>
+      <p class="lead">Integration with external systems and standards to facilitate data exchange with
+        other healthcare providers, laboratories, pharmacies, and government agencies.</p>
+    </div>
+    <div class="col-md-5 order-md-1">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXC1yh1ovMaRH55caONUeYEyzogHBnc2THLw&s" class="img-fluid" alt="">
+    </div>
+  </div>
+</div>
+
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <p class="col-md-4 mb-0 text-body-secondary">© 2025 Company, Inc</p> <a href="/"
+        class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+        aria-label="Bootstrap"> <svg class="bi me-2" width="40" height="32" aria-hidden="true">
+          <use xlink:href="#bootstrap"></use>
+        </svg> </a>
+      <ul class="nav col-md-4 justify-content-end">
+        <li class="nav-item"><a href="healthcare.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+        <li class="nav-item"><a href="About.html" class="nav-link px-2 text-body-secondary">About</a></li>
+      </ul>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
